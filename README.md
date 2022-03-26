@@ -8,7 +8,7 @@ Supported All kind of arithmetic expressions, e.g. ((-123)*456+100)
 
 Let's lein run
 
-localhost:3000/<write your expression here>
+[localhost:3000/1+2](localhost:3000/1+2)
 
 ## License
 
