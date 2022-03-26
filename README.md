@@ -8,6 +8,8 @@ Supported All kind of arithmetic expressions, e.g. ((-123)*456+100)
 
 Let's lein run
 
+localhost:3000/<write your expression here>
+
 ## License
 
 Copyright © 2022
