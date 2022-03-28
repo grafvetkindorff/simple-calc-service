@@ -12,7 +12,8 @@
      mul                   = multiplicative-expr <'*'> term
      div                   = multiplicative-expr <'/'> term
      <term>                = number | <'('> additive-expr <')'>
-     number                = #'-?[0-9]+'"))
+     number                = #'-?[0-9]+' | #'-?[0-9]+' decimal-point #'-?[0-9]+'
+     <decimal-point>       = '.'"))
 
 (defn evaluate [expr-str]
   (->> (s/replace expr-str #"\s" "")
@@ -22,11 +23,11 @@
           :sub -,
           :mul *,
           :div /,
-          :number clojure.edn/read-string
+          :number (comp clojure.edn/read-string str)
           :expr identity})))
 
 (defn evaluate-wrapped [expr-str]
   (let [answer (evaluate expr-str)]
-    (if (int? answer)
+    (if (number? answer)
       answer
       "invalid expression")))
